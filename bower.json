@@ -1,14 +1,14 @@
 {
-  "name": "timezone",
+  "name": "localtime",
   "version": "0.1.0",
-  "homepage": "https://github.com/meikidd/timezone",
+  "homepage": "https://github.com/meikidd/localtime",
   "authors": [
     "meikidd <meikidd@gmail.com>"
   ],
-  "description": "A Timezone Web Component",
-  "main": "timezone.html",
+  "description": "A Web Component to turn UTC time to browser local time.",
+  "main": "localtime.html",
   "keywords": [
-    "timezone",
+    "localtime",
     "date",
     "time",
     "datetime",

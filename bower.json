@@ -1,0 +1,21 @@
+{
+  "name": "timezone",
+  "version": "0.1.0",
+  "homepage": "https://github.com/meikidd/timezone",
+  "authors": [
+    "meikidd <meikidd@gmail.com>"
+  ],
+  "description": "A Timezone Web Component",
+  "main": "timezone.html",
+  "keywords": [
+    "timezone",
+    "date",
+    "time",
+    "datetime",
+    "moment"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "moment": "~2.10.2"
+  }
+}

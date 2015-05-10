@@ -1,0 +1,29 @@
+<script src="./lib/moment/moment.js"></script>
+<script>
+  (function() {
+    var element = Object.create(HTMLElement.prototype);
+
+    element.createdCallback = function() {
+      var time = this.innerHTML || this.getAttribute('data-time');
+      if(!time) return;
+      
+      var offset = new Date().getTimezoneOffset() * -1;
+      time = moment(time).add(offset, 'minutes');
+
+      // format
+      var format = this.getAttribute('data-format');
+      if(format) {
+        time = time.format(format);
+      }else{
+        time = new Date(time);
+        time = time.toLocaleDateString() + ' ' + time.toLocaleTimeString();
+      }
+
+      this.innerHTML = time;
+    };
+
+    document.registerElement('time-zone', {
+      prototype: element
+    });
+  }());
+</script>

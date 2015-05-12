@@ -16,7 +16,7 @@
         time = time.format(format);
       }else{
         time = new Date(time);
-        time = time.toLocaleDateString() + ' ' + time.toLocaleTimeString();
+        time = time.toLocaleString();
       }
 
       this.innerHTML = time;

@@ -7,9 +7,6 @@
       var time = this.innerHTML || this.getAttribute('data-time');
       if(!time) return;
       
-      var offset = new Date().getTimezoneOffset() * -1;
-      time = moment(time).add(offset, 'minutes');
-
       // format
       var format = this.getAttribute('data-format');
       if(format) {

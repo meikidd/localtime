@@ -5,6 +5,7 @@
     element.createdCallback = function() {
       var time = this.innerHTML || this.getAttribute('data-time');
       if(!time) return;
+      if(/^\d+$/.test(time)) time = +time;
       
       // format
       var format = this.getAttribute('data-format');

@@ -1,6 +1,22 @@
 <script>
   (function() {
     var element = Object.create(HTMLElement.prototype);
+    var date2str = function(date, formatString) {
+      if(typeof date == 'string') date = new Date(date);
+      var dateObj = {
+        M: date.getMonth() + 1,
+        d: date.getDate(),
+        h: date.getHours(),
+        m: date.getMinutes(),
+        s: date.getSeconds()
+      };
+      formatString = formatString.replace(/(M+|d+|h+|m+|s+)/g, function(v) {
+        return ((v.length > 1 ? '0' : '') + eval('dateObj.' + v.slice(-1))).slice(-2);
+      });
+      return formatString.replace(/(y+)/g, function(v) {
+        return date.getFullYear().toString().slice(-v.length);
+      });
+    };
 
     element.createdCallback = function() {
       var time = this.innerHTML || this.getAttribute('data-time');
@@ -10,7 +26,7 @@
       // format
       var format = this.getAttribute('data-format');
       if(format) {
-        time = time.format(format);
+        time = date2str(time, format);
       }else{
         time = new Date(time);
         time = time.toLocaleString();
